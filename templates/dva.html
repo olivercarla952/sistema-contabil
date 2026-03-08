@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Demonstração do Valor Adicionado (DVA)</h1>
+
+<table class="tabela-dva">
+
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr class="total">
+            <th>Valor Adicionado</th>
+            <th>R$ {{ "%.2f"|format(data.valor_adicionado|default(0)) }}</th>
+        </tr>
+
+        <tr>
+            <td>Funcionários</td>
+            <td>R$ {{ "%.2f"|format(data.funcionarios|default(0)) }}</td>
+        </tr>
+
+        <tr>
+            <td>Governo</td>
+            <td>R$ {{ "%.2f"|format(data.governo|default(0)) }}</td>
+        </tr>
+
+        <tr>
+            <td>Financiadores</td>
+            <td>R$ {{ "%.2f"|format(data.financiadores|default(0)) }}</td>
+        </tr>
+
+        <tr>
+            <td>Sócios</td>
+            <td>R$ {{ "%.2f"|format(data.socios|default(0)) }}</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+{% endblock %}

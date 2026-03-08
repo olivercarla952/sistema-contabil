@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sistema Contábil</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>📊 Sistema Contábil</h2>
+        </div>
+
+        <nav class="menu">
+
+            <ul>
+
+                <li>
+                    <a href="{{ url_for('dashboard.dashboard') }}">
+                        📈 Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('lancamentos.index') }}">
+                        🧾 Lançamentos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('relatorios.balanco') }}">
+                        📑 Balanço Patrimonial
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('relatorios.dre') }}">
+                        📊 DRE
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('relatorios.dfc') }}">
+                        💰 Fluxo de Caixa
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('relatorios.dva') }}">
+                        🏦 Valor Adicionado
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ÁREA PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="topbar-title">
+                Sistema de Gestão Contábil
+            </div>
+
+        </header>
+
+
+        <!-- CONTEÚDO -->
+        <section class="page-content">
+
+            {% block content %}{% endblock %}
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/graficos.js') }}"></script>
+
+</body>
+
+</html>

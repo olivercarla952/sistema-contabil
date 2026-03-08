@@ -1,0 +1,284 @@
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:"Inter",sans-serif;
+background:#f5f7fb;
+color:#2d3436;
+}
+
+
+/* LAYOUT PRINCIPAL */
+
+.layout{
+display:flex;
+min-height:100vh;
+width:100%;
+}
+
+
+/* SIDEBAR */
+
+.sidebar{
+width:240px;
+background:linear-gradient(180deg,#1f3b73,#2e5aac);
+color:white;
+padding:30px 20px;
+position:fixed;
+height:100vh;
+}
+
+.logo{
+font-size:20px;
+font-weight:600;
+margin-bottom:40px;
+}
+
+.menu ul{
+list-style:none;
+}
+
+.menu li{
+margin-bottom:12px;
+}
+
+.menu a{
+display:block;
+padding:10px 12px;
+border-radius:8px;
+color:white;
+text-decoration:none;
+font-size:15px;
+transition:0.2s;
+}
+
+.menu a:hover{
+background:rgba(255,255,255,0.15);
+}
+
+
+/* CONTEÚDO */
+
+.main-content{
+margin-left:240px;
+width:calc(100% - 240px);
+padding:30px 40px;
+}
+
+.page-header{
+margin-bottom:25px;
+}
+
+.page-header h1{
+font-size:26px;
+font-weight:600;
+margin-bottom:5px;
+}
+
+.page-header p{
+color:#888;
+font-size:14px;
+}
+
+
+/* CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-bottom:40px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.05);
+transition:0.2s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+}
+
+.card-title{
+font-size:14px;
+color:#777;
+margin-bottom:6px;
+}
+
+.card-value{
+font-size:22px;
+font-weight:600;
+}
+
+
+/* CORES FINANCEIRAS */
+
+.receita{
+border-left:4px solid #2ecc71;
+}
+
+.despesa{
+border-left:4px solid #e74c3c;
+}
+
+.lucro{
+border-left:4px solid #27ae60;
+}
+
+.ativo{
+border-left:4px solid #3498db;
+}
+
+.passivo{
+border-left:4px solid #e67e22;
+}
+
+.patrimonio{
+border-left:4px solid #9b59b6;
+}
+
+.caixa{
+border-left:4px solid #16a085;
+}
+
+
+/* GRÁFICOS */
+
+.charts{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:25px;
+}
+
+.chart-card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.05);
+}
+
+.chart-card h3{
+margin-bottom:15px;
+font-size:16px;
+}
+
+
+/* TABELAS */
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 6px 15px rgba(0,0,0,0.05);
+margin-top:20px;
+}
+
+th{
+background:#2e5aac;
+color:white;
+padding:12px;
+font-size:14px;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #eee;
+font-size:14px;
+}
+
+tr:hover{
+background:#f8f9ff;
+}
+
+
+/* FORMULÁRIOS */
+
+form{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.05);
+margin-bottom:20px;
+}
+
+.form-group{
+margin-bottom:15px;
+}
+
+label{
+display:block;
+font-size:14px;
+margin-bottom:6px;
+}
+
+input,select{
+width:100%;
+padding:10px;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:14px;
+}
+
+input:focus,select:focus{
+outline:none;
+border-color:#2e5aac;
+}
+
+
+/* BOTÕES */
+
+button{
+background:#2e5aac;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:8px;
+cursor:pointer;
+font-size:14px;
+transition:0.2s;
+}
+
+button:hover{
+background:#1f3b73;
+}
+
+
+/* LINKS */
+
+a{
+color:#2e5aac;
+text-decoration:none;
+}
+
+a:hover{
+text-decoration:underline;
+}
+
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+.sidebar{
+width:200px;
+}
+
+.main-content{
+margin-left:200px;
+}
+
+.cards{
+grid-template-columns:1fr 1fr;
+}
+
+}

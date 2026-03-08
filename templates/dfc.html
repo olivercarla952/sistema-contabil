@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Demonstração de Fluxo de Caixa</h1>
+
+<table class="tabela-dfc">
+
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td>Atividades Operacionais</td>
+            <td>R$ {{ "%.2f"|format(data.operacionais|default(0)) }}</td>
+        </tr>
+
+        <tr>
+            <td>Atividades de Investimento</td>
+            <td>R$ {{ "%.2f"|format(data.investimento|default(0)) }}</td>
+        </tr>
+
+        <tr>
+            <td>Atividades de Financiamento</td>
+            <td>R$ {{ "%.2f"|format(data.financiamento|default(0)) }}</td>
+        </tr>
+
+        <tr>
+            <td>Entradas</td>
+            <td>R$ {{ "%.2f"|format(data.entradas|default(0)) }}</td>
+        </tr>
+
+        <tr>
+            <td>Saídas</td>
+            <td>R$ {{ "%.2f"|format(data.saidas|default(0)) }}</td>
+        </tr>
+
+        <tr>
+            <th>Saldo Final</th>
+            <th>R$ {{ "%.2f"|format(data.saldo_final|default(0)) }}</th>
+        </tr>
+
+    </tbody>
+
+</table>
+
+{% endblock %}

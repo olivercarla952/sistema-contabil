@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Demonstração do Resultado do Exercício (DRE)</h1>
+
+<table class="tabela-dre">
+
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td>Receita Bruta</td>
+            <td>R$ {{ "%.2f"|format(data.receita_bruta|default(0)) }}</td>
+        </tr>
+
+        <tr>
+            <td>(-) Deduções</td>
+            <td>R$ {{ "%.2f"|format(data.deducoes|default(0)) }}</td>
+        </tr>
+
+        <tr class="total">
+            <th>Receita Líquida</th>
+            <th>R$ {{ "%.2f"|format(data.receita_liquida|default(0)) }}</th>
+        </tr>
+
+        <tr>
+            <td>(-) Custos</td>
+            <td>R$ {{ "%.2f"|format(data.custos|default(0)) }}</td>
+        </tr>
+
+        <tr class="total">
+            <th>Lucro Bruto</th>
+            <th>R$ {{ "%.2f"|format(data.lucro_bruto|default(0)) }}</th>
+        </tr>
+
+        <tr>
+            <td>(-) Despesas Operacionais</td>
+            <td>R$ {{ "%.2f"|format(data.despesas_operacionais|default(0)) }}</td>
+        </tr>
+
+        <tr class="total">
+            <th>Lucro Operacional</th>
+            <th>R$ {{ "%.2f"|format(data.lucro_operacional|default(0)) }}</th>
+        </tr>
+
+        <tr class="total-final">
+            <th>Lucro Líquido</th>
+            <th>R$ {{ "%.2f"|format(data.lucro_liquido|default(0)) }}</th>
+        </tr>
+
+    </tbody>
+
+</table>
+
+{% endblock %}

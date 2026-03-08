@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Balanço Patrimonial</h1>
+
+<table class="tabela-balanco">
+
+    <thead>
+        <tr>
+            <th>ATIVO</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>Ativo Circulante</td>
+            <td>R$ {{ "%.2f"|format(data.ativo|default(0)) }}</td>
+        </tr>
+
+        <tr>
+            <td>Ativo Não Circulante</td>
+            <td>R$ 0.00</td>
+        </tr>
+
+        <tr>
+            <th>Total Ativo</th>
+            <th>R$ {{ "%.2f"|format(data.ativo|default(0)) }}</th>
+        </tr>
+
+        <tr>
+            <th>PASSIVO</th>
+            <th>Valor</th>
+        </tr>
+
+        <tr>
+            <td>Passivo Circulante</td>
+            <td>R$ {{ "%.2f"|format(data.passivo|default(0)) }}</td>
+        </tr>
+
+        <tr>
+            <td>Passivo Não Circulante</td>
+            <td>R$ 0.00</td>
+        </tr>
+
+        <tr>
+            <th>Total Passivo</th>
+            <th>R$ {{ "%.2f"|format(data.passivo|default(0)) }}</th>
+        </tr>
+
+        <tr>
+            <th>PATRIMÔNIO LÍQUIDO</th>
+            <th>R$ {{ "%.2f"|format(data.patrimonio|default(0)) }}</th>
+        </tr>
+
+        <tr>
+            <th>Total Passivo + Patrimônio</th>
+            <th>
+                R$ {{ "%.2f"|format((data.passivo|default(0)) + (data.patrimonio|default(0))) }}
+            </th>
+        </tr>
+    </tbody>
+
+</table>
+
+<p>
+    Validação:
+    {{ 'OK' if data.validacao|default(False) else 'Erro' }}
+</p>
+
+{% endblock %}

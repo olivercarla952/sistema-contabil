@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <div class="page-header">
+        <h1>Dashboard Financeiro</h1>
+        <p>Visão geral da situação financeira</p>
+    </div>
+
+
+    <!-- CARDS -->
+    <div class="cards">
+
+        <div class="card receita">
+            <div class="card-title">Receita Total</div>
+            <div class="card-value">
+                R$ {{ "%.2f"|format(indicadores.receita_total|default(0)) }}
+            </div>
+        </div>
+
+        <div class="card despesa">
+            <div class="card-title">Despesas Totais</div>
+            <div class="card-value">
+                R$ {{ "%.2f"|format(indicadores.despesas_totais|default(0)) }}
+            </div>
+        </div>
+
+        <div class="card lucro">
+            <div class="card-title">Lucro Líquido</div>
+            <div class="card-value">
+                R$ {{ "%.2f"|format(indicadores.lucro_liquido|default(0)) }}
+            </div>
+        </div>
+
+        <div class="card ativo">
+            <div class="card-title">Ativo Total</div>
+            <div class="card-value">
+                R$ {{ "%.2f"|format(indicadores.ativo_total|default(0)) }}
+            </div>
+        </div>
+
+        <div class="card passivo">
+            <div class="card-title">Passivo Total</div>
+            <div class="card-value">
+                R$ {{ "%.2f"|format(indicadores.passivo_total|default(0)) }}
+            </div>
+        </div>
+
+        <div class="card patrimonio">
+            <div class="card-title">Patrimônio Líquido</div>
+            <div class="card-value">
+                R$ {{ "%.2f"|format(indicadores.patrimonio_liquido|default(0)) }}
+            </div>
+        </div>
+
+        <div class="card caixa">
+            <div class="card-title">Saldo de Caixa</div>
+            <div class="card-value">
+                R$ {{ "%.2f"|format(indicadores.saldo_caixa|default(0)) }}
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- GRÁFICOS -->
+    <div class="charts">
+
+        <div class="chart-card">
+            <h3>Receita vs Despesa</h3>
+            <canvas id="receitaDespesaChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Estrutura do Balanço</h3>
+            <canvas id="balancoChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+            <h3>Fluxo de Caixa</h3>
+            <canvas id="fluxoChart"></canvas>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const dadosDashboard = {
+    receita: {{ indicadores.receita_total | default(0) | tojson }},
+    despesa: {{ indicadores.despesas_totais | default(0) | tojson }},
+    ativo: {{ indicadores.ativo_total | default(0) | tojson }},
+    passivo: {{ indicadores.passivo_total | default(0) | tojson }},
+    patrimonio: {{ indicadores.patrimonio_liquido | default(0) | tojson }},
+    fluxo: {{ indicadores.saldo_caixa | default(0) | tojson }}
+};
+
+criarGraficosDashboard(
+    dadosDashboard.receita,
+    dadosDashboard.despesa,
+    dadosDashboard.ativo,
+    dadosDashboard.passivo,
+    dadosDashboard.patrimonio,
+    dadosDashboard.fluxo
+);
+
+</script>
+
+{% endblock %}
