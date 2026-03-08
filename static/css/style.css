@@ -31,6 +31,8 @@ color:white;
 padding:30px 20px;
 position:fixed;
 height:100vh;
+top:0;
+left:0;
 }
 
 .logo{
@@ -121,33 +123,13 @@ font-weight:600;
 
 /* CORES FINANCEIRAS */
 
-.receita{
-border-left:4px solid #2ecc71;
-}
-
-.despesa{
-border-left:4px solid #e74c3c;
-}
-
-.lucro{
-border-left:4px solid #27ae60;
-}
-
-.ativo{
-border-left:4px solid #3498db;
-}
-
-.passivo{
-border-left:4px solid #e67e22;
-}
-
-.patrimonio{
-border-left:4px solid #9b59b6;
-}
-
-.caixa{
-border-left:4px solid #16a085;
-}
+.receita{border-left:4px solid #2ecc71;}
+.despesa{border-left:4px solid #e74c3c;}
+.lucro{border-left:4px solid #27ae60;}
+.ativo{border-left:4px solid #3498db;}
+.passivo{border-left:4px solid #e67e22;}
+.patrimonio{border-left:4px solid #9b59b6;}
+.caixa{border-left:4px solid #16a085;}
 
 
 /* GRÁFICOS */
@@ -265,9 +247,9 @@ text-decoration:underline;
 }
 
 
-/* RESPONSIVO */
+/* RESPONSIVO TABLET */
 
-@media(max-width:900px){
+@media (max-width: 900px){
 
 .sidebar{
 width:200px;
@@ -275,10 +257,76 @@ width:200px;
 
 .main-content{
 margin-left:200px;
+width:calc(100% - 200px);
 }
 
 .cards{
 grid-template-columns:1fr 1fr;
+}
+
+}
+
+
+/* RESPONSIVO CELULAR */
+
+@media (max-width:768px){
+
+.layout{
+flex-direction:column;
+}
+
+/* menu vira topo */
+
+.sidebar{
+position:relative;
+width:100%;
+height:auto;
+padding:15px;
+}
+
+/* menu horizontal */
+
+.menu ul{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.menu li{
+margin:0;
+}
+
+.menu a{
+font-size:13px;
+padding:8px 10px;
+}
+
+/* conteúdo ocupa tela inteira */
+
+.main-content{
+margin-left:0;
+width:100%;
+padding:20px;
+}
+
+/* cards empilhados */
+
+.cards{
+grid-template-columns:1fr;
+}
+
+/* gráficos empilhados */
+
+.charts{
+grid-template-columns:1fr;
+}
+
+/* tabelas com scroll */
+
+table{
+display:block;
+overflow-x:auto;
+white-space:nowrap;
 }
 
 }
